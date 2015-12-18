@@ -1,0 +1,8 @@
+script:
+- echo "compiling main files" 
+- javac Test.java 
+- 
+
+- echo "running test"
+- java -ea Test
+
