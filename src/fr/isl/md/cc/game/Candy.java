@@ -38,6 +38,8 @@ public class Candy extends MyShape {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 	
 	
