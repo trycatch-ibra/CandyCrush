@@ -1,8 +1,8 @@
 script:
 - echo "compiling main files" 
-- javac Test.java 
+- javac TestGame.java 
 - 
 
 - echo "running test"
-- java -ea Test
+- java -ea TestGame
 
