@@ -1,3 +1,0 @@
-script:
-- echo "bonjour encore"
-- javac src/fr/isl/md/cc/Test/Test.java
