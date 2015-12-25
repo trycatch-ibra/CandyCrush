@@ -1,13 +1,10 @@
 language:java
 jdk:
-  - oraclejdk8
+  -oraclejdk8
   -oraclejdk7
 script:
-- mvn clean verify
-- echo "compiling main files" 
-- javac src/fr/isl/md/cc/Test/TestGame.java 
-- 
+- mvn clean
+- mvn test
+- mvn install -DskipTests=true
 
-- echo "running test"
-- java -ea src/fr/isl/md/cc/Test/TestGame
 
