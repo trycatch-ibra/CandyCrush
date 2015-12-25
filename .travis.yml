@@ -1,8 +1,8 @@
 script:
 - echo "compiling main files" 
-- javac src/fr/isl/md/cc/Test/TestGame.java 
+- javac TestGame.java 
 - 
 
 - echo "running test"
-- java -ea src/fr/isl/md/cc/Test/TestGame
+- java -ea TestGame
 
