@@ -1,8 +1,0 @@
-script:
-- echo "compiling main files" 
-- javac TestGame.java 
-- 
-
-- echo "running test"
-- java -ea TestGame
-
