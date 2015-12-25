@@ -1,27 +1,37 @@
 package fr.isl.md.cc.game;
 
-import javafx.scene.control.MenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Menu {
-	private MenuItem open;
-	private MenuItem save;
-	private MenuItem quit;
-	private MenuItem start;
-	
-	
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+public class Menu extends JMenu {
+	private JMenuItem quit;
+	private JMenuItem start;
+
 	public Menu() {
-		// TODO Auto-generated constructor stub
+		this.setText("Menu");
+		start = new JMenuItem("Start");
+		quit = new JMenuItem("Quit");
+		quit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		this.add(start);
+		this.add(quit);
 	}
-	
+
 	public void ouvrir() {
-	
+
 	}
-	
+
 	public void sauvegarder() {
-		
+
 	}
-	
+
 	public void quitter() {
-		
+
 	}
 }
