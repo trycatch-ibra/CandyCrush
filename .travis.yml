@@ -4,5 +4,5 @@ script:
 - 
 
 - echo "running test"
-- java -ea TestGame
+- java -ea src/fr/isl/md/cc/Test/TestGame
 
