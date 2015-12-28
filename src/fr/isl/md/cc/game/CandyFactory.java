@@ -1,14 +1,18 @@
 package fr.isl.md.cc.game;
 
-import javafx.scene.shape.Shape;
+import java.awt.Color;
+import java.util.Random;
 
 public class CandyFactory {
-	public CandyFactory() {
-		// TODO Auto-generated constructor stub
+	// couleur des cases : 0 = vide
+	Color colors[] = { Color.WHITE, Color.RED, Color.GREEN, Color.BLUE, Color.GRAY, Color.PINK, Color.CYAN };
+	Random rand = new Random();
+
+	public Shape getShape(int x, int y) {
+		Candy candy = new Candy(colors[1 + rand.nextInt(colors.length - 1)], x, y);
+
+		return candy;
+
 	}
-	
-	public Shape getShape() {
-		// TODO
-		return null;
-	}
+
 }

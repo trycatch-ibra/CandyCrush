@@ -7,19 +7,20 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class Menu extends JMenu {
+	
+	private static final long serialVersionUID = 1L;
 	private JMenuItem quit;
-	private JMenuItem start;
 
 	public Menu() {
 		this.setText("Menu");
-		start = new JMenuItem("Start");
+
 		quit = new JMenuItem("Quit");
 		quit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
-		this.add(start);
+
 		this.add(quit);
 	}
 

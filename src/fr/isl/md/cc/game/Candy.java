@@ -1,46 +1,42 @@
 package fr.isl.md.cc.game;
 
-import com.sun.javafx.geom.Shape;
+import java.awt.Color;
+import java.awt.Graphics;
 
-import javafx.scene.paint.Color;
+public class Candy extends Shape {
 
-public class Candy extends MyShape {
-	private int abs;
-	private int ord;
-	
-	public Candy()   {
-	
+	private static final long serialVersionUID = 1L;
+	Color color;
+	int abs;
+	int ord;
+
+	public Candy(Color color, int x, int y) {
+		this.color = color;
+		this.abs = x;
+		this.ord = y;
 	}
-	
+
+	@Override
+	public void paint(Graphics g) {
+		g.setColor(this.color);
+		g.fillOval(abs, ord, 40, 4);
+
+	}
+
 	public int getAbs() {
 		return abs;
 	}
-	public void setAbs(int abs) {
-		this.abs = abs;
-	}
+
 	public int getOrd() {
 		return ord;
 	}
+
+	public void setAbs(int abs) {
+		this.abs = abs;
+	}
+
 	public void setOrd(int ord) {
 		this.ord = ord;
 	}
 
-	public void draw() {
-		super.draw();
-	}
-	
-	public void changeColor(Color color) {
-		super.changeColor(color);
-	}
-
-	@Override
-	public Shape impl_configShape() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-
-	
-	
 }
