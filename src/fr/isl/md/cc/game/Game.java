@@ -18,12 +18,11 @@ public final class Game {
 	}
 
 	public void play() {
-		System.out.println("Play");
+		new MainWindow();
 	}
 
 	public void setLevel(Level l) {
 
 	}
-
 
 }

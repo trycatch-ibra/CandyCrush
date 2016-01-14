@@ -1,13 +1,25 @@
 package fr.isl.md.cc.game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
+public abstract class Shape {
 
-public abstract class Shape extends JPanel {
+	private Color color;
 
-	private static final long serialVersionUID = 1L;
+	public Shape(Color c) {
+		this.color = c;
+	}
 
-	public abstract void paint(Graphics g);
+	public Color getC() {
+		return color;
+	}
+
+	// refers to changeColor() in the class diagram
+	public void setC(Color c) {
+		this.color = c;
+	}
+
+	public abstract void draw(Graphics g);
 
 }

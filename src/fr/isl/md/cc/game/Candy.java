@@ -4,39 +4,38 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Candy extends Shape {
+	private int abs;
+	private int ord;
 
-	private static final long serialVersionUID = 1L;
-	Color color;
-	int abs;
-	int ord;
-
-	public Candy(Color color, int x, int y) {
-		this.color = color;
-		this.abs = x;
-		this.ord = y;
-	}
-
-	@Override
-	public void paint(Graphics g) {
-		g.setColor(this.color);
-		g.fillOval(abs, ord, 40, 4);
-
+	public Candy(Color c) {
+		super(c);
 	}
 
 	public int getAbs() {
 		return abs;
 	}
 
-	public int getOrd() {
-		return ord;
-	}
-
 	public void setAbs(int abs) {
 		this.abs = abs;
 	}
 
+	public int getOrd() {
+		return ord;
+	}
+
 	public void setOrd(int ord) {
 		this.ord = ord;
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		System.out.println("jjchjgh$$$$");
+		g.fillOval(48 * abs + 3, 53 * ord + 3, 44, 44);
+
+	}
+
+	public void deplacer() {
+
 	}
 
 }
