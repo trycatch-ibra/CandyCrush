@@ -1,4 +1,4 @@
-package fr.isl.md.cc.game;
+package md.cc.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
