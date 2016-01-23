@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.util.logging.Level;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -16,16 +17,18 @@ import md.cc.view.Grid;
 import md.cc.view.MainWindow;
 
 public class Game {
-	private MainWindow mainWindow;
+	public MainWindow mainWindow;
 	private JPanel scorePanel;
 	private static int scoreValue = 0;
 	private Container container;
 	private static JLabel scoreLabel;
 
-	private static Game INSTANCE = null;
+	private int level;
 
-	private Game() {
+	static Game INSTANCE = null;
 
+	private Game(int time) {
+		this.level = time;
 		BorderLayout mgr = new BorderLayout();
 		mgr.setHgap(5);
 		mainWindow = new MainWindow();
@@ -36,7 +39,7 @@ public class Game {
 
 		// setting panel for displaying scores and time
 
-		TimerLabel tl = new TimerLabel();
+		TimerLabel tl = new TimerLabel(level);
 		scoreLabel = new JLabel("  Votre score est: " + String.valueOf(scoreValue));
 
 		// add a grid
@@ -54,7 +57,7 @@ public class Game {
 		mainWindow.getContainer().add(cc, BorderLayout.CENTER);
 		mainWindow.setTitle("My super candy crush !");
 		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainWindow.setPreferredSize(new Dimension(395, 600));
+		mainWindow.setPreferredSize(new Dimension(395, 464));
 		mainWindow.pack();
 		mainWindow.setResizable(false);
 		mainWindow.setLocationRelativeTo(null);
@@ -62,9 +65,9 @@ public class Game {
 
 	}
 
-	public static Game getInstance() {
+	public static Game getInstance(int time) {
 		if (INSTANCE == null) {
-			INSTANCE = new Game();
+			INSTANCE = new Game(time);
 		}
 		return INSTANCE;
 	}
@@ -88,13 +91,20 @@ public class Game {
 		new RunLevels();
 	}
 
-	public static void end() {
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public void end() {
 		JDialog.setDefaultLookAndFeelDecorated(true);
 		int response = JOptionPane.showConfirmDialog(null, "Terminé ! voulez vous jouer une nouvelle partie ?",
 				"Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		if (response == JOptionPane.YES_OPTION) {
 			Game.INSTANCE = null;
-			Game.getInstance();
+			mainWindow.dispose();
+			scoreValue = 0;
+			Game.getInstance(level);
+
 		} else if (response == JOptionPane.NO_OPTION) {
 			System.exit(0);
 		}

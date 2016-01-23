@@ -21,8 +21,11 @@ public class RunLevels extends JFrame {
 		level1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				new Level1().loadLevel();
-				Game.getInstance();
+				Level1 l1 = new Level1();
+				l1.setTime(120);
+				Game.INSTANCE = null;
+				Game.getInstance(l1.getTime());
+				;
 				exit();
 			}
 		});
@@ -30,8 +33,11 @@ public class RunLevels extends JFrame {
 		level2.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				new Level2().loadLevel();
-				Game.getInstance();
+				Level1 l2 = new Level1();
+				l2.setTime(90);
+				Game.INSTANCE = null;
+				Game.getInstance(l2.getTime());
+				;
 				exit();
 
 			}
@@ -41,7 +47,7 @@ public class RunLevels extends JFrame {
 		this.getContentPane().add(level1);
 		this.getContentPane().add(level2);
 
-		this.setTitle("Choose level !");
+		this.setTitle("Candy crush !");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setPreferredSize(new Dimension(250, 70));
 		this.pack();
@@ -52,6 +58,7 @@ public class RunLevels extends JFrame {
 	}
 
 	public void exit() {
-		this.dispose();
+		setVisible(false);
+		dispose();
 	}
 }

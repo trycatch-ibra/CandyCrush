@@ -1,8 +1,15 @@
 package md.cc.model;
 
 public class Level1 extends Level{
-
-	public void loadLevel() {
-		TimerLabel.cpt = 10;
+	private int time;
+	
+	public void setTime(int time) {
+		this.time = time;
 	}
+	
+	public int getTime() {
+		return time;
+	}
+
+	
 }
