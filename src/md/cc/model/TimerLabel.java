@@ -10,7 +10,7 @@ import md.cc.controller.Game;
 
 public class TimerLabel extends JLabel implements ActionListener {
 	private Timer t;
-	private int cpt = 3;
+	public static int cpt = 0;
 
 	public TimerLabel() {
 		t = new Timer(1000, this);
@@ -20,10 +20,10 @@ public class TimerLabel extends JLabel implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		cpt--;
-		if (cpt==0) {
+		if (cpt == 0) {
 			Game.end();
 		}
-		this.setText("Il vous reste: "+ String.valueOf(cpt) +" s");
+		this.setText("Il vous reste: " + String.valueOf(cpt) + " s");
 	}
 
 }

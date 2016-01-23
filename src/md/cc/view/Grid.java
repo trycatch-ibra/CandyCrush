@@ -10,8 +10,10 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.Random;
 
+import javax.sound.sampled.LineUnavailableException;
+
 import md.cc.controller.Game;
-import md.cc.model.TimerLabel;
+import md.cc.controller.GameSound;
 
 public class Grid extends Panel implements Runnable, MouseListener, MouseMotionListener {
 	// grille avec un numéro de couleur par case
@@ -20,7 +22,7 @@ public class Grid extends Panel implements Runnable, MouseListener, MouseMotionL
 	boolean marked[][] = new boolean[8][8];
 	// couleur des cases : 0 = vide
 	Color colors[] = { Color.WHITE, Color.RED, Color.GREEN, Color.BLUE, Color.GRAY, Color.PINK, Color.CYAN };
-	// coordonnées des cases sélectionnées : -1 = non sélectionné
+	// coordonnées des cass sélectionnées : -1 = non sélectionné
 	int selectedX = -1, selectedY = -1;
 	int swappedX = -1, swappedY = -1;
 
@@ -68,7 +70,11 @@ public class Grid extends Panel implements Runnable, MouseListener, MouseMotionL
 		// cases
 		if (selectedX != -1 && selectedY != -1 && swappedX != -1 && swappedY != -1) {
 			swap(selectedX, selectedY, swappedX, swappedY);
-
+			try {
+				GameSound.play();
+			} catch (LineUnavailableException e1) {
+				e1.printStackTrace();
+			}
 			// on met à jour le score
 			Game.updateScore();
 

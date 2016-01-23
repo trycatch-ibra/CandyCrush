@@ -7,7 +7,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class Menu extends JMenu {
-	
+
 	private static final long serialVersionUID = 1L;
 	private JMenuItem quit;
 
@@ -24,15 +24,4 @@ public class Menu extends JMenu {
 		this.add(quit);
 	}
 
-	public void ouvrir() {
-
-	}
-
-	public void sauvegarder() {
-
-	}
-
-	public void quitter() {
-
-	}
 }

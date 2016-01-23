@@ -22,7 +22,9 @@ public class Game {
 	private Container container;
 	private static JLabel scoreLabel;
 
-	public Game() {
+	private static Game INSTANCE = null;
+
+	private Game() {
 
 		BorderLayout mgr = new BorderLayout();
 		mgr.setHgap(5);
@@ -60,6 +62,13 @@ public class Game {
 
 	}
 
+	public static Game getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new Game();
+		}
+		return INSTANCE;
+	}
+
 	public static void updateScore() {
 		scoreValue += 10;
 		scoreLabel.setText("  Votre score est: " + String.valueOf(scoreValue));
@@ -76,17 +85,17 @@ public class Game {
 
 	// met le jeu dans une fenêtre
 	public static void main(String args[]) {
-		new Game();
+		new RunLevels();
 	}
 
 	public static void end() {
 		JDialog.setDefaultLookAndFeelDecorated(true);
-		int response = JOptionPane.showConfirmDialog(null,
-				"La partie est terminé, voulez vous redemarrer une nouvelle partie ?", "Confirm",
-				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		int response = JOptionPane.showConfirmDialog(null, "Terminé ! voulez vous jouer une nouvelle partie ?",
+				"Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		if (response == JOptionPane.YES_OPTION) {
-			// nouvelle partie
-		} else if (response == JOptionPane.CLOSED_OPTION) {
+			Game.INSTANCE = null;
+			Game.getInstance();
+		} else if (response == JOptionPane.NO_OPTION) {
 			System.exit(0);
 		}
 	}

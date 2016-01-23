@@ -1,5 +1,5 @@
 package md.cc.model;
 
-public interface Level {
-	public int increaseDegree(int number);
+public abstract class Level {
+	public abstract void loadLevel();
 }

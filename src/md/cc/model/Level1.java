@@ -1,16 +1,8 @@
 package md.cc.model;
 
-public class Level1 implements Level {
-	
-	public int degree = 0;
+public class Level1 extends Level{
 
-	public Level1() {
-	
+	public void loadLevel() {
+		TimerLabel.cpt = 10;
 	}
-	
-	public int increaseDegree(int number) {
-		degree = degree + number;
-		return degree ;
-	}
-
 }
