@@ -14,6 +14,8 @@ import javax.sound.sampled.LineUnavailableException;
 
 import md.cc.controller.Game;
 import md.cc.controller.GameSound;
+import md.cc.model.CandyFactory;
+import md.cc.model.Shape;
 
 public class Grid extends Panel implements Runnable, MouseListener, MouseMotionListener {
 	// grille avec un numéro de couleur par case
@@ -234,12 +236,16 @@ public class Grid extends Panel implements Runnable, MouseListener, MouseMotionL
 			g.setColor(Color.YELLOW);
 			g.fillRect(swappedX * 48 + 1, swappedY * 48 + 1, 47, 47);
 		}
-
+		
+		CandyFactory cf = new CandyFactory();
 		// afficher le contenu de la grille
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				g.setColor(colors[grid[i][j]]);
-				g.fillOval(48 * i + 3, 48 * j + 3, 42, 42);
+				Shape candy = cf.getShape(grid[i][j], "circle");
+				candy.setAbs(i);
+				candy.setOrd(j);
+				g.setColor(candy.getColor());
+				candy.draw(g);
 			}
 		}
 

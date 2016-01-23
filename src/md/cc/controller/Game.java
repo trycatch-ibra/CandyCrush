@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.util.logging.Level;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
